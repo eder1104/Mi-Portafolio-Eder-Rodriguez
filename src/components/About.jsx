@@ -21,8 +21,8 @@ const EDUCATION = [
   {
     degree: 'Ingeniería de Software',
     institution: 'Tecnológica del Oriente',
-    period: 'Sep 2025 — Sep 2026',
-    detail: 'Último semestre (8°). Enfoque en auditoría de software, estándares ISO y calidad de código.',
+    period: 'Graduado',
+    detail: 'Título profesional en Ingeniería de Software. Enfoque en auditoría de software, estándares ISO y calidad de código.',
     icon: '🎓',
   },
   {
@@ -64,7 +64,7 @@ export default function About() {
               <h3 className="about__name">Eder Rodriguez</h3>
               <p className="about__role">Full Stack Developer · Software Engineer</p>
               <p className="about__description">
-                Ingeniero de Software (último semestre) con experiencia demostrable en producción.
+                Ingeniero de Software graduado con experiencia demostrable en producción.
                 Especializado en arquitectura backend con <strong>PHP/Laravel</strong>, construcción de <strong>APIs RESTful</strong> seguras (Passport &amp; Sanctum),
                 y desarrollo frontend moderno con <strong>React</strong> y <strong>Vue.js</strong>.
               </p>

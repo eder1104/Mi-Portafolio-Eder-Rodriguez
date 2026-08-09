@@ -75,7 +75,7 @@ export default function Hero() {
           </div>
 
           <p className="hero__bio animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
-            Ingeniero de Software (último semestre) &amp; Desarrollador Full Stack.
+            Ingeniero de Software &amp; Desarrollador Full Stack.
             Especializado en arquitectura de software backend con <strong>PHP/Laravel</strong>,
             construcción de <strong>APIs REST</strong> seguras e integraciones frontend de alto rendimiento con <strong>React</strong> y <strong>Vue.js</strong>.
             Ubicado en <span className="hero__location">📍 San Gil, Colombia</span>.
