@@ -34,6 +34,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.project-card__header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
 }
 
 .project-card__icon-wrapper {
@@ -45,6 +53,7 @@
   background: hsla(265, 85%, 65%, 0.1);
   border-radius: var(--radius-md);
   transition: background var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .project-card:hover .project-card__icon-wrapper {
@@ -64,6 +73,7 @@
   opacity: 0.85;
   transform: none;
   transition: all var(--transition-base);
+  flex-shrink: 0;
 }
 
 .project-card:hover .project-card__actions,
@@ -171,13 +181,10 @@
 
 /* Demo Badge */
 .project-card__demo-badge {
-  position: absolute;
-  top: var(--space-md);
-  right: var(--space-md);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 0.2rem 0.6rem;
+  padding: 0.25rem 0.65rem;
   border-radius: var(--radius-full);
   font-size: 0.68rem;
   font-weight: 600;
@@ -185,11 +192,12 @@
   background: hsla(220, 12%, 58%, 0.08);
   border: 1px solid hsla(220, 12%, 58%, 0.15);
   color: var(--clr-text-faint);
+  white-space: nowrap;
 }
 
 .project-card__demo-badge--active {
-  background: hsla(145, 70%, 55%, 0.1);
-  border-color: hsla(145, 70%, 55%, 0.25);
+  background: hsla(145, 70%, 55%, 0.12);
+  border-color: hsla(145, 70%, 55%, 0.3);
   color: var(--clr-success);
 }
 

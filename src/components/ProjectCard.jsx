@@ -56,10 +56,29 @@ export default function ProjectCard({ repo, onOpenModal }) {
     >
       {/* Header */}
       <div className="project-card__header">
-        <div className="project-card__icon-wrapper">
-          <svg className="project-card__folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-          </svg>
+        <div className="project-card__header-left">
+          <div className="project-card__icon-wrapper">
+            <svg className="project-card__folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+
+          {/* Demo indicator */}
+          <div className={`project-card__demo-badge ${repo.hasDemo ? 'project-card__demo-badge--active' : ''}`}>
+            {repo.hasDemo ? (
+              <>
+                <span className="project-card__demo-dot" aria-hidden="true" />
+                Live Demo
+              </>
+            ) : (
+              <>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                Sin demo
+              </>
+            )}
+          </div>
         </div>
 
         <div className="project-card__actions">
@@ -135,23 +154,6 @@ export default function ProjectCard({ repo, onOpenModal }) {
             </span>
           )}
         </div>
-      </div>
-
-      {/* Demo indicator */}
-      <div className={`project-card__demo-badge ${repo.hasDemo ? 'project-card__demo-badge--active' : ''}`}>
-        {repo.hasDemo ? (
-          <>
-            <span className="project-card__demo-dot" aria-hidden="true" />
-            Live Demo
-          </>
-        ) : (
-          <>
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-            </svg>
-            Sin demo aún
-          </>
-        )}
       </div>
 
       {/* Hover hint */}
