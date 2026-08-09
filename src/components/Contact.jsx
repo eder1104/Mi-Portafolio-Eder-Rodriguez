@@ -4,7 +4,7 @@ import './Contact.css';
 const CONTACT_LINKS = [
   {
     id: 'contact-email',
-    label: 'Email',
+    label: 'Correo Electrónico',
     value: 'ederyairrodriguezparra1231@gmail.com',
     href: 'mailto:ederyairrodriguezparra1231@gmail.com',
     icon: (
@@ -17,7 +17,7 @@ const CONTACT_LINKS = [
   },
   {
     id: 'contact-github',
-    label: 'GitHub',
+    label: 'Perfil GitHub',
     value: 'github.com/eder1104',
     href: 'https://github.com/eder1104',
     icon: (
@@ -29,7 +29,7 @@ const CONTACT_LINKS = [
   },
   {
     id: 'contact-location',
-    label: 'Ubicación',
+    label: 'Ubicación Principal',
     value: 'San Gil, Santander, Colombia',
     href: 'https://maps.google.com/?q=San+Gil+Santander+Colombia',
     icon: (
@@ -59,10 +59,10 @@ export default function Contact() {
     <section id="contact" className="section contact" aria-labelledby="contact-title">
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">// hablemos</span>
-          <h2 className="section-title" id="contact-title">Contacto</h2>
+          <span className="section-tag">// contacto_directo</span>
+          <h2 className="section-title" id="contact-title">Contacto Profesional</h2>
           <p className="section-subtitle">
-            ¿Tienes un proyecto o propuesta? Estoy disponible para nuevas oportunidades.
+            ¿Buscas integrar un desarrollador a tu equipo o iniciar un proyecto tecnológico? Conversemos sobre tus requerimientos.
           </p>
         </div>
 
@@ -71,11 +71,10 @@ export default function Contact() {
           <div className="glass-card contact__cta-card">
             <div className="contact__cta-glow" aria-hidden="true" />
             <div className="contact__cta-content">
-              <span className="contact__cta-emoji" aria-hidden="true">✉️</span>
-              <h3 className="contact__cta-title">¿Trabajamos juntos?</h3>
+              <span className="contact__cta-emoji" aria-hidden="true">💼</span>
+              <h3 className="contact__cta-title">Contacto &amp; Oportunidades</h3>
               <p className="contact__cta-desc">
-                Estoy abierto a posiciones full time, proyectos freelance y colaboraciones.
-                Respondo en menos de 24 horas.
+                Disponible para vinculación profesional full-time, desarrollo a medida y asesoría técnica. Respuesta garantizada en menos de 24 horas.
               </p>
               <div className="contact__cta-actions">
                 <a
@@ -87,7 +86,7 @@ export default function Contact() {
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                     <polyline points="22,6 12,13 2,6"/>
                   </svg>
-                  Enviar email
+                  Enviar Mensaje
                 </a>
                 <button
                   className="btn btn-secondary"
@@ -108,7 +107,7 @@ export default function Contact() {
                         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
                         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
                       </svg>
-                      Copiar email
+                      Copiar Correo
                     </>
                   )}
                 </button>
@@ -150,7 +149,7 @@ export default function Contact() {
           <a href="https://github.com/eder1104" target="_blank" rel="noopener noreferrer" className="link-hover">
             Eder Rodriguez
           </a>{' '}
-          · Sincronizado con GitHub API
+          · Software Engineer
         </p>
         <p className="contact__footer-copy">
           © {new Date().getFullYear()} Eder Rodriguez. Todos los derechos reservados.

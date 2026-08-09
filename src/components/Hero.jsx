@@ -4,7 +4,7 @@ import './Hero.css';
 const TYPED_STRINGS = [
   'Full Stack Developer',
   'Backend PHP / Laravel',
-  'React & Vue.js Dev',
+  'React & Vue.js Specialist',
   'API REST Specialist',
   'Software Engineer',
 ];
@@ -28,12 +28,12 @@ function useTypewriter(strings, speed = 80, pause = 2000) {
       return () => clearTimeout(t);
     }
 
-    if (deleting && charIdx > 0) {
+    if (!deleting && charIdx > 0) {
       const t = setTimeout(() => setCharIdx((c) => c - 1), speed / 2);
       return () => clearTimeout(t);
     }
 
-    if (deleting && charIdx === 0) {
+    if (!deleting && charIdx === 0) {
       setDeleting(false);
       setIdx((i) => (i + 1) % strings.length);
     }
@@ -61,7 +61,7 @@ export default function Hero() {
       <div className="container hero__content">
         <div className="hero__text">
           <p className="hero__greeting animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
-            <span className="hero__greeting-wave">👋</span> Hola, soy
+            <span>⚡</span> Software Engineer &amp; Full Stack Developer
           </p>
 
           <h1 className="hero__name animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
@@ -75,10 +75,10 @@ export default function Hero() {
           </div>
 
           <p className="hero__bio animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
-            Estudiante de último semestre de Ingeniería de Software &amp; desarrollador
-            Full Stack con experiencia real. Especializado en <strong>PHP/Laravel</strong>,
-            <strong> React</strong> y construcción de <strong>APIs REST</strong> robustas.
-            Basado en <span className="hero__location">📍 San Gil, Colombia</span>.
+            Ingeniero de Software (último semestre) &amp; Desarrollador Full Stack.
+            Especializado en arquitectura de software backend con <strong>PHP/Laravel</strong>,
+            construcción de <strong>APIs REST</strong> seguras e integraciones frontend de alto rendimiento con <strong>React</strong> y <strong>Vue.js</strong>.
+            Ubicado en <span className="hero__location">📍 San Gil, Colombia</span>.
           </p>
 
           <div className="hero__actions animate-fadeInUp" style={{ animationDelay: '0.5s' }}>
@@ -86,14 +86,14 @@ export default function Hero() {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/>
               </svg>
-              Ver Proyectos
+              Explorar Proyectos
             </a>
             <a href="#contact" className="btn btn-secondary" id="hero-cta-contact">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                 <polyline points="22,6 12,13 2,6"/>
               </svg>
-              Contactar
+              Contacto Profesional
             </a>
             <a
               href="https://github.com/eder1104"

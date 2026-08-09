@@ -6,14 +6,14 @@ const EXPERIENCE = [
     company: 'RIOM SAS',
     period: 'Oct 2025 — Presente',
     type: 'current',
-    description: 'Desarrollo de software empresarial, mantenimiento de sistemas y optimización de aplicaciones web.',
+    description: 'Desarrollo de software empresarial, arquitectura de sistemas y optimización de aplicaciones web de alto rendimiento.',
   },
   {
     role: 'Full Stack Developer',
     company: 'Virgilio Galvis',
     period: 'Apr 2025 — Oct 2025',
     type: 'past',
-    description: 'Diseño y construcción de aplicaciones web robustas. Integración de APIs REST y optimización de sistemas legacy.',
+    description: 'Diseño y construcción de aplicaciones web robustas. Integración de APIs REST y modernización de sistemas legacy.',
   },
 ];
 
@@ -22,14 +22,14 @@ const EDUCATION = [
     degree: 'Ingeniería de Software',
     institution: 'Tecnológica del Oriente',
     period: 'Sep 2025 — Sep 2026',
-    detail: 'Último semestre (8°). Certificación en auditoría de software e ISO en proceso.',
+    detail: 'Último semestre (8°). Enfoque en auditoría de software, estándares ISO y calidad de código.',
     icon: '🎓',
   },
   {
     degree: 'Tecnólogo ADSO',
     institution: 'SENA',
     period: 'Abr 2023 — Jul 2025',
-    detail: 'Análisis y Desarrollo de Software. Formación práctica en desarrollo web completo.',
+    detail: 'Análisis y Desarrollo de Software. Formación integral en ciclo de vida del software.',
     icon: '🏫',
   },
 ];
@@ -39,10 +39,10 @@ export default function About() {
     <section id="about" className="section about" aria-labelledby="about-title">
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">// quien_soy</span>
+          <span className="section-tag">// perfil_profesional</span>
           <h2 className="section-title" id="about-title">Sobre Mí</h2>
           <p className="section-subtitle">
-            Un desarrollador apasionado por construir software que resuelve problemas reales.
+            Desarrollador enfocado en la construcción de soluciones tecnológicas de alto rendimiento, escalables y seguras.
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export default function About() {
               </div>
               <div className="about__available-badge">
                 <span className="about__available-dot" aria-hidden="true" />
-                Disponible
+                Disponible para proyectos &amp; roles
               </div>
             </div>
 
@@ -64,15 +64,13 @@ export default function About() {
               <h3 className="about__name">Eder Rodriguez</h3>
               <p className="about__role">Full Stack Developer · Software Engineer</p>
               <p className="about__description">
-                Estudiante de último semestre de Ingeniería de Software con experiencia real
-                en producción. Me especializo en el backend con <strong>PHP/Laravel</strong>,
-                construcción de <strong>APIs REST</strong> seguras (Passport &amp; Sanctum), y
-                desarrollo frontend moderno con <strong>React</strong> y <strong>Vue.js</strong>.
+                Ingeniero de Software (último semestre) con experiencia demostrable en producción.
+                Especializado en arquitectura backend con <strong>PHP/Laravel</strong>, construcción de <strong>APIs RESTful</strong> seguras (Passport &amp; Sanctum),
+                y desarrollo frontend moderno con <strong>React</strong> y <strong>Vue.js</strong>.
               </p>
               <p className="about__description">
-                Actualmente completo una certificación en <strong>auditoría de software
-                e ISO</strong>. Nivel de inglés <strong>B2</strong> — cómodo en ambientes
-                técnicos internacionales.
+                Actualmente enfocado en estándares de <strong>calidad de software, auditoría e ISO</strong>.
+                Nivel de inglés <strong>B2</strong> — capacidad de comunicación efectiva en entornos técnicos globales.
               </p>
 
               <div className="about__info-pills">
@@ -97,7 +95,7 @@ export default function About() {
             <div className="about__timeline-section">
               <h3 className="about__timeline-title">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                Experiencia
+                Experiencia Profesional
               </h3>
               <div className="about__timeline">
                 {EXPERIENCE.map((exp, i) => (
@@ -123,7 +121,7 @@ export default function About() {
             <div className="about__timeline-section">
               <h3 className="about__timeline-title">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                Educación
+                Educación &amp; Certificaciones
               </h3>
               <div className="about__edu-list">
                 {EDUCATION.map((edu, i) => (

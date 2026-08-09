@@ -65,7 +65,7 @@ export default function Navbar() {
           className="btn btn-primary navbar__cta"
           aria-label="Ir a sección de contacto"
         >
-          Contrátame
+          Contactar
         </a>
 
         {/* Hamburger */}
@@ -95,7 +95,7 @@ export default function Navbar() {
           ))}
           <li>
             <a href="#contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={closeMenu}>
-              Contrátame
+              Contactar
             </a>
           </li>
         </ul>
