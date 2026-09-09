@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import './ProjectCard.css';
 
 const HOVER_DEBOUNCE_MS = 600;
@@ -10,6 +11,7 @@ const HOVER_DEBOUNCE_MS = 600;
  *  - Datos extraídos del controlador (formatRepoData)
  */
 export default function ProjectCard({ repo, onOpenModal }) {
+  const { t } = useTranslation();
   const [hovered, setHovered] = useState(false);
   const hoverTimer = useRef(null);
 
@@ -68,14 +70,14 @@ export default function ProjectCard({ repo, onOpenModal }) {
             {repo.hasDemo ? (
               <>
                 <span className="project-card__demo-dot" aria-hidden="true" />
-                Live Demo
+                {t('projects.card.liveDemo')}
               </>
             ) : (
               <>
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
                 </svg>
-                Sin demo
+                {t('projects.card.noDemo')}
               </>
             )}
           </div>
@@ -90,7 +92,7 @@ export default function ProjectCard({ repo, onOpenModal }) {
             className="project-card__action-btn"
             onClick={(e) => e.stopPropagation()}
             aria-label={`Ver código de ${repo.name} en GitHub`}
-            title="Ver en GitHub"
+            title={t('projects.card.github')}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
@@ -106,7 +108,7 @@ export default function ProjectCard({ repo, onOpenModal }) {
               className="project-card__action-btn"
               onClick={(e) => e.stopPropagation()}
               aria-label={`Abrir demo de ${repo.name}`}
-              title="Abrir demo"
+              title={t('projects.card.openDemo')}
             >
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
@@ -161,7 +163,7 @@ export default function ProjectCard({ repo, onOpenModal }) {
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
         </svg>
-        Click para preview
+        {t('projects.card.clickPreview')}
       </div>
     </article>
   );

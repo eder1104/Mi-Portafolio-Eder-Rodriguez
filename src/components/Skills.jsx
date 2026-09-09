@@ -1,51 +1,7 @@
+import { useTranslation } from 'react-i18next';
 import './Skills.css';
 
-const SKILL_CATEGORIES = [
-  {
-    title: 'Backend',
-    icon: '⚙️',
-    color: 'primary',
-    skills: [
-      { name: 'PHP', level: 90 },
-      { name: 'Laravel', level: 88 },
-      { name: 'Python', level: 65 },
-      { name: 'API REST', level: 92 },
-      { name: 'Sanctum / Passport', level: 80 },
-    ],
-  },
-  {
-    title: 'Frontend',
-    icon: '🎨',
-    color: 'accent',
-    skills: [
-      { name: 'JavaScript', level: 85 },
-      { name: 'React', level: 78 },
-      { name: 'Vue.js', level: 75 },
-      { name: 'HTML5 & CSS3', level: 90 },
-    ],
-  },
-  {
-    title: 'Bases de Datos',
-    icon: '🗄️',
-    color: 'primary',
-    skills: [
-      { name: 'MySQL', level: 85 },
-      { name: 'SQLite', level: 72 },
-      { name: 'MongoDB', level: 60 },
-    ],
-  },
-  {
-    title: 'Herramientas',
-    icon: '🛠️',
-    color: 'accent',
-    skills: [
-      { name: 'Git & GitHub', level: 82 },
-      { name: 'Render / Railway', level: 70 },
-      { name: 'Inglés B2', level: 75 },
-      { name: 'ISO / Auditoría', level: 60 },
-    ],
-  },
-];
+// SKILL_CATEGORIES will be localized inside the component
 
 const TECH_BADGES = [
   { name: 'PHP', emoji: '🐘' },
@@ -63,14 +19,63 @@ const TECH_BADGES = [
 ];
 
 export default function Skills() {
+  const { t } = useTranslation();
+
+  const SKILL_CATEGORIES = [
+    {
+      title: t('skills.categories.backend'),
+      icon: '⚙️',
+      color: 'primary',
+      skills: [
+        { name: 'PHP', level: 90 },
+        { name: 'Laravel', level: 88 },
+        { name: 'Python', level: 65 },
+        { name: 'API REST', level: 92 },
+        { name: 'Sanctum / Passport', level: 80 },
+      ],
+    },
+    {
+      title: t('skills.categories.frontend'),
+      icon: '🎨',
+      color: 'accent',
+      skills: [
+        { name: 'JavaScript', level: 85 },
+        { name: 'React', level: 78 },
+        { name: 'Vue.js', level: 75 },
+        { name: 'HTML5 & CSS3', level: 90 },
+      ],
+    },
+    {
+      title: t('skills.categories.database'),
+      icon: '🗄️',
+      color: 'primary',
+      skills: [
+        { name: 'MySQL', level: 85 },
+        { name: 'SQLite', level: 72 },
+        { name: 'MongoDB', level: 60 },
+      ],
+    },
+    {
+      title: t('skills.categories.tools'),
+      icon: '🛠️',
+      color: 'accent',
+      skills: [
+        { name: 'Git & GitHub', level: 82 },
+        { name: 'Render / Railway', level: 70 },
+        { name: 'Inglés B2', level: 75 },
+        { name: 'ISO / Auditoría', level: 60 },
+      ],
+    },
+  ];
+
   return (
     <section id="skills" className="section skills" aria-labelledby="skills-title">
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">// mis_habilidades</span>
-          <h2 className="section-title" id="skills-title">Stack & Skills</h2>
+          <span className="section-tag">{t('skills.tag')}</span>
+          <h2 className="section-title" id="skills-title">{t('skills.title')}</h2>
           <p className="section-subtitle">
-            Tecnologías con las que trabajo día a día en proyectos reales.
+            {t('skills.subtitle')}
           </p>
         </div>
 

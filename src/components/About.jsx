@@ -1,48 +1,26 @@
+import { useTranslation, Trans } from 'react-i18next';
 import './About.css';
 
-const EXPERIENCE = [
-  {
-    role: 'Software Engineer',
-    company: 'RIOM SAS',
-    period: 'Oct 2025 — Presente',
-    type: 'current',
-    description: 'Desarrollo de software empresarial, arquitectura de sistemas y optimización de aplicaciones web de alto rendimiento.',
-  },
-  {
-    role: 'Full Stack Developer',
-    company: 'Virgilio Galvis',
-    period: 'Apr 2025 — Oct 2025',
-    type: 'past',
-    description: 'Diseño y construcción de aplicaciones web robustas. Integración de APIs REST y modernización de sistemas legacy.',
-  },
-];
 
-const EDUCATION = [
-  {
-    degree: 'Ingeniería de Software',
-    institution: 'Tecnológica del Oriente',
-    period: 'Graduado',
-    detail: 'Título profesional en Ingeniería de Software. Enfoque en auditoría de software, estándares ISO y calidad de código.',
-    icon: '🎓',
-  },
-  {
-    degree: 'Tecnólogo ADSO',
-    institution: 'SENA',
-    period: 'Abr 2023 — Jul 2025',
-    detail: 'Análisis y Desarrollo de Software. Formación integral en ciclo de vida del software.',
-    icon: '🏫',
-  },
-];
 
 export default function About() {
+  const { t } = useTranslation();
+  const EXPERIENCE = t('about.experience.jobs', { returnObjects: true });
+  const EDUCATION = t('about.education.items', { returnObjects: true });
+  // Add icons that are not translatable directly to the objects
+  const educationWithIcons = EDUCATION.map((edu, i) => ({
+    ...edu,
+    icon: i === 0 ? '🎓' : '🏫'
+  }));
+
   return (
     <section id="about" className="section about" aria-labelledby="about-title">
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">// perfil_profesional</span>
-          <h2 className="section-title" id="about-title">Sobre Mí</h2>
+          <span className="section-tag">{t('about.tag')}</span>
+          <h2 className="section-title" id="about-title">{t('about.title')}</h2>
           <p className="section-subtitle">
-            Desarrollador enfocado en la construcción de soluciones tecnológicas de alto rendimiento, escalables y seguras.
+            {t('about.subtitle')}
           </p>
         </div>
 
@@ -56,21 +34,25 @@ export default function About() {
               </div>
               <div className="about__available-badge">
                 <span className="about__available-dot" aria-hidden="true" />
-                Disponible para proyectos &amp; roles
+                {t('about.available')}
               </div>
             </div>
 
             <div className="about__bio-text">
               <h3 className="about__name">Eder Rodriguez</h3>
-              <p className="about__role">Full Stack Developer · Software Engineer</p>
+              <p className="about__role">{t('about.role')}</p>
               <p className="about__description">
-                Ingeniero de Software graduado con experiencia demostrable en producción.
-                Especializado en arquitectura backend con <strong>PHP/Laravel</strong>, construcción de <strong>APIs RESTful</strong> seguras (Passport &amp; Sanctum),
-                y desarrollo frontend moderno con <strong>React</strong> y <strong>Vue.js</strong>.
+                <Trans i18nKey="about.desc1">
+                  Ingeniero de Software graduado con experiencia demostrable en producción.
+                  Especializado en arquitectura backend con <strong>PHP/Laravel</strong>, construcción de <strong>APIs RESTful</strong> seguras (Passport &amp; Sanctum),
+                  y desarrollo frontend moderno con <strong>React</strong> y <strong>Vue.js</strong>.
+                </Trans>
               </p>
               <p className="about__description">
-                Actualmente enfocado en estándares de <strong>calidad de software, auditoría e ISO</strong>.
-                Nivel de inglés <strong>B2</strong> — capacidad de comunicación efectiva en entornos técnicos globales.
+                <Trans i18nKey="about.desc2">
+                  Actualmente enfocado en estándares de <strong>calidad de software, auditoría e ISO</strong>.
+                  Nivel de inglés <strong>B2</strong> — capacidad de comunicación efectiva en entornos técnicos globales.
+                </Trans>
               </p>
 
               <div className="about__info-pills">
@@ -83,7 +65,7 @@ export default function About() {
                   ederyairrodriguezparra1231@gmail.com
                 </span>
                 <span className="about__pill">
-                  🇬🇧 Inglés B2
+                  🇬🇧 {t('about.englishLevel')}
                 </span>
               </div>
             </div>
@@ -95,7 +77,7 @@ export default function About() {
             <div className="about__timeline-section">
               <h3 className="about__timeline-title">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                Experiencia Profesional
+                {t('about.experience.title')}
               </h3>
               <div className="about__timeline">
                 {EXPERIENCE.map((exp, i) => (
@@ -104,8 +86,8 @@ export default function About() {
                     <div className="about__timeline-content">
                       <div className="about__timeline-header">
                         <h4 className="about__timeline-role">{exp.role}</h4>
-                        {exp.type === 'current' && (
-                          <span className="badge badge-primary">Actual</span>
+                        {i === 0 && (
+                          <span className="badge badge-primary">{t('about.experience.current')}</span>
                         )}
                       </div>
                       <p className="about__timeline-company">{exp.company}</p>
@@ -121,10 +103,10 @@ export default function About() {
             <div className="about__timeline-section">
               <h3 className="about__timeline-title">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                Educación &amp; Certificaciones
+                {t('about.education.title')}
               </h3>
               <div className="about__edu-list">
-                {EDUCATION.map((edu, i) => (
+                {educationWithIcons.map((edu, i) => (
                   <div key={i} className="about__edu-item glass-card">
                     <span className="about__edu-icon" aria-hidden="true">{edu.icon}</span>
                     <div>

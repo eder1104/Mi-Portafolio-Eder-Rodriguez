@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import './Navbar.css';
 
 const NAV_LINKS = [
-  { label: 'Inicio',     href: '#hero' },
-  { label: 'Sobre Mí',  href: '#about' },
-  { label: 'Skills',    href: '#skills' },
-  { label: 'Proyectos', href: '#projects' },
-  { label: 'Contacto',  href: '#contact' },
+  { key: 'inicio',     href: '#hero' },
+  { key: 'sobreMi',  href: '#about' },
+  { key: 'skills',    href: '#skills' },
+  { key: 'proyectos', href: '#projects' },
+  { key: 'contacto',  href: '#contact' },
 ];
 
 export default function Navbar() {
+  const { t, i18n } = useTranslation();
   const [scrolled, setScrolled]   = useState(false);
   const [menuOpen, setMenuOpen]   = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -53,11 +55,26 @@ export default function Navbar() {
                 href={link.href}
                 className={`navbar__link ${activeSection === link.href.slice(1) ? 'navbar__link--active' : ''}`}
               >
-                {link.label}
+                {t(`navbar.${link.key}`)}
               </a>
             </li>
           ))}
         </ul>
+
+        {/* Language Switcher */}
+        <button
+          className="btn btn-ghost navbar__lang-btn"
+          onClick={() => i18n.changeLanguage(i18n.language.startsWith('es') ? 'en' : 'es')}
+          aria-label="Cambiar idioma"
+          title="Cambiar idioma"
+          style={{ padding: '0.4rem', marginRight: '0.8rem', background: 'transparent', display: 'flex', alignItems: 'center' }}
+        >
+          <img 
+            src={i18n.language.startsWith('es') ? 'https://flagcdn.com/us.svg' : 'https://flagcdn.com/es.svg'} 
+            alt={i18n.language.startsWith('es') ? 'English' : 'Español'}
+            style={{ width: '24px', borderRadius: '2px', boxShadow: '0 0 3px rgba(0,0,0,0.3)' }}
+          />
+        </button>
 
         {/* CTA */}
         <a
@@ -65,7 +82,7 @@ export default function Navbar() {
           className="btn btn-primary navbar__cta"
           aria-label="Ir a sección de contacto"
         >
-          Contactar
+          {t('navbar.contactar')}
         </a>
 
         {/* Hamburger */}
@@ -89,14 +106,33 @@ export default function Navbar() {
                 className={`navbar__mobile-link ${activeSection === link.href.slice(1) ? 'navbar__mobile-link--active' : ''}`}
                 onClick={closeMenu}
               >
-                {link.label}
+                {t(`navbar.${link.key}`)}
               </a>
             </li>
           ))}
           <li>
-            <a href="#contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={closeMenu}>
-              Contactar
-            </a>
+            <div style={{ display: 'flex', gap: '1rem', width: '100%' }}>
+              <button
+                className="btn btn-ghost"
+                onClick={() => {
+                  i18n.changeLanguage(i18n.language.startsWith('es') ? 'en' : 'es');
+                  closeMenu();
+                }}
+                style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}
+              >
+                <img 
+                  src={i18n.language.startsWith('es') ? 'https://flagcdn.com/us.svg' : 'https://flagcdn.com/es.svg'} 
+                  alt={i18n.language.startsWith('es') ? 'English' : 'Español'}
+                  style={{ width: '24px', borderRadius: '2px' }}
+                />
+                <span style={{ fontSize: '1.2rem', fontWeight: 600 }}>
+                  {i18n.language.startsWith('es') ? 'EN' : 'ES'}
+                </span>
+              </button>
+              <a href="#contact" className="btn btn-primary" style={{ flex: 2, justifyContent: 'center' }} onClick={closeMenu}>
+                {t('navbar.contactar')}
+              </a>
+            </div>
           </li>
         </ul>
       </div>

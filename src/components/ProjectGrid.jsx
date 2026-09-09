@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useGitHubRepos } from '../hooks/useGitHubRepos';
 import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
@@ -28,21 +29,22 @@ function SkeletonCard() {
 }
 
 function EmptyState({ onRefresh }) {
+  const { t } = useTranslation();
   return (
     <div className="project-grid__empty" role="status" aria-live="polite">
       <div className="project-grid__empty-icon" aria-hidden="true">🗂️</div>
-      <h3 className="project-grid__empty-title">Sin proyectos en el portafolio aún</h3>
+      <h3 className="project-grid__empty-title">{t('projects.emptyState.title')}</h3>
       <p className="project-grid__empty-desc">
-        Para que un repositorio aparezca aquí, agrega el topic{' '}
-        <code>portfolio</code> en GitHub.
+        {t('projects.emptyState.desc')}
+        <code>portfolio</code>{t('projects.emptyState.desc2')}
       </p>
       <div className="project-grid__empty-steps">
-        <p className="project-grid__empty-step-title">¿Cómo hacerlo? 👇</p>
+        <p className="project-grid__empty-step-title">{t('projects.emptyState.howTo')}</p>
         <ol>
-          <li>Abre tu repo en <a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank" rel="noopener noreferrer" className="link-hover">github.com/{GITHUB_USERNAME}</a></li>
-          <li>Haz clic en ⚙️ (ícono junto a <em>About</em>) → <strong>Topics</strong></li>
-          <li>Escribe <code>portfolio</code> y guarda</li>
-          <li>Recarga este portafolio y aparecerá automáticamente 🎉</li>
+          <li>{t('projects.emptyState.step1')} <a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank" rel="noopener noreferrer" className="link-hover">github.com/{GITHUB_USERNAME}</a></li>
+          <li>{t('projects.emptyState.step2')}</li>
+          <li>{t('projects.emptyState.step3')}</li>
+          <li>{t('projects.emptyState.step4')}</li>
         </ol>
       </div>
       <button
@@ -54,25 +56,27 @@ function EmptyState({ onRefresh }) {
           <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
           <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
         </svg>
-        Verificar ahora
+        {t('projects.emptyState.verifyNow')}
       </button>
     </div>
   );
 }
 
 function ErrorState({ error, onRefresh }) {
+  const { t } = useTranslation();
   return (
     <div className="project-grid__error" role="alert">
       <span aria-hidden="true">⚠️</span>
       <p>{error}</p>
       <button className="btn btn-secondary" onClick={onRefresh} id="projects-retry-btn">
-        Reintentar
+        {t('projects.errorState.retry')}
       </button>
     </div>
   );
 }
 
 export default function ProjectGrid() {
+  const { t } = useTranslation();
   const { repos, loading, error, refresh, lastFetched } = useGitHubRepos();
   const [selectedRepo, setSelectedRepo] = useState(null);
   const [modalOpen, setModalOpen]       = useState(false);
@@ -100,11 +104,11 @@ export default function ProjectGrid() {
     <section id="projects" className="section projects" aria-labelledby="projects-title">
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">// mis_proyectos</span>
-          <h2 className="section-title" id="projects-title">Proyectos</h2>
+          <span className="section-tag">{t('projects.tag')}</span>
+          <h2 className="section-title" id="projects-title">{t('projects.title')}</h2>
           <p className="section-subtitle">
-            Sincronizado con GitHub API — repos con topic{' '}
-            <code className="projects__topic-code">portfolio</code>{' '}o{' '}
+            {t('projects.subtitle')}
+            <code className="projects__topic-code">portfolio</code>{t('projects.or')}
             <code className="projects__topic-code">portafolio</code>
           </p>
         </div>
@@ -119,7 +123,7 @@ export default function ProjectGrid() {
                 onClick={() => setFilter(lang)}
                 id={`filter-${lang}`}
               >
-                {lang === 'all' ? 'Todos' : lang}
+                {lang === 'all' ? t('projects.filters.all') : lang}
               </button>
             ))}
           </div>
@@ -127,7 +131,7 @@ export default function ProjectGrid() {
           <div className="projects__actions">
             {lastFetched && (
               <span className="projects__last-fetched" aria-live="polite">
-                Actualizado {lastFetched.toLocaleTimeString()}
+                {t('projects.lastFetched')} {lastFetched.toLocaleTimeString()}
               </span>
             )}
             <button
@@ -141,7 +145,7 @@ export default function ProjectGrid() {
                 <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
                 <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
               </svg>
-              Sincronizar
+              {t('projects.sync')}
             </button>
           </div>
         </div>
@@ -149,13 +153,13 @@ export default function ProjectGrid() {
         {/* Repo Count */}
         {!loading && !error && repos.length > 0 && (
           <p className="projects__count" aria-live="polite">
-            {filteredRepos.length} proyecto{filteredRepos.length !== 1 ? 's' : ''} encontrado{filteredRepos.length !== 1 ? 's' : ''}
+            {t('projects.countFound', { count: filteredRepos.length })}
           </p>
         )}
 
         {/* States */}
         {loading && (
-          <div className="project-grid project-grid--loading" aria-label="Cargando proyectos..." role="status">
+          <div className="project-grid project-grid--loading" aria-label={t('projects.loading')} role="status">
             {[...Array(6)].map((_, i) => <SkeletonCard key={i} />)}
           </div>
         )}
@@ -166,8 +170,8 @@ export default function ProjectGrid() {
 
         {!loading && !error && repos.length > 0 && filteredRepos.length === 0 && (
           <div className="project-grid__empty" role="status">
-            <p>No hay proyectos en <strong>{filter}</strong> aún.</p>
-            <button className="btn btn-ghost" onClick={() => setFilter('all')}>Ver todos</button>
+            <p dangerouslySetInnerHTML={{ __html: t('projects.emptyFilter', { filter }) }}></p>
+            <button className="btn btn-ghost" onClick={() => setFilter('all')}>{t('projects.viewAll')}</button>
           </div>
         )}
 

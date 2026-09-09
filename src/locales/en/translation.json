@@ -1,0 +1,157 @@
+{
+  "navbar": {
+    "inicio": "Home",
+    "sobreMi": "About",
+    "skills": "Skills",
+    "proyectos": "Projects",
+    "contacto": "Contact",
+    "contactar": "Get in touch"
+  },
+  "hero": {
+    "greeting": "Software Engineer & Full Stack Developer",
+    "typed": [
+      "Full Stack Developer",
+      "Backend PHP / Laravel",
+      "React & Vue.js Specialist",
+      "API REST Specialist",
+      "Software Engineer"
+    ],
+    "bio1": "Software Engineer & Full Stack Developer. Specialized in backend software architecture with ",
+    "bio2": ", building secure ",
+    "bio3": " and high-performance frontend integrations with ",
+    "bio4": " and ",
+    "bio5": ". Based in ",
+    "exploreProjects": "Explore Projects",
+    "professionalContact": "Professional Contact",
+    "stats": {
+      "yearsExp": "Years exp.",
+      "projects": "Projects",
+      "english": "English"
+    },
+    "scroll": "Scroll",
+    "code": {
+      "role": "\"Full Stack Developer\"",
+      "location": "\"San Gil, Colombia\""
+    }
+  },
+  "about": {
+    "tag": "// professional_profile",
+    "title": "About Me",
+    "subtitle": "Developer focused on building high-performance, scalable, and secure technological solutions.",
+    "available": "Available for projects & roles",
+    "role": "Full Stack Developer · Software Engineer",
+    "desc1": "Graduated Software Engineer with proven production experience. Specialized in backend architecture with <1>PHP/Laravel</1>, building secure <3>RESTful APIs</3> (Passport & Sanctum), and modern frontend development with <5>React</5> and <7>Vue.js</7>.",
+    "desc2": "Currently focused on <1>software quality standards, auditing and ISO</1>. <3>B2</3> English level — ability to communicate effectively in global technical environments.",
+    "location": "San Gil, Santander, Colombia",
+    "englishLevel": "B2 English",
+    "experience": {
+      "title": "Professional Experience",
+      "current": "Current",
+      "jobs": [
+        {
+          "role": "Software Engineer",
+          "company": "RIOM SAS",
+          "period": "Oct 2025 — Present",
+          "description": "Enterprise software development, systems architecture, and optimization of high-performance web applications."
+        },
+        {
+          "role": "Full Stack Developer",
+          "company": "Virgilio Galvis",
+          "period": "Apr 2025 — Oct 2025",
+          "description": "Design and construction of robust web applications. REST API integration and legacy systems modernization."
+        }
+      ]
+    },
+    "education": {
+      "title": "Education & Certifications",
+      "items": [
+        {
+          "degree": "Software Engineering",
+          "institution": "Tecnológica del Oriente",
+          "period": "Graduated",
+          "detail": "Professional degree in Software Engineering. Focus on software auditing, ISO standards, and code quality."
+        },
+        {
+          "degree": "ADSO Technologist",
+          "institution": "SENA",
+          "period": "Apr 2023 — Jul 2025",
+          "detail": "Software Analysis and Development. Comprehensive training in software lifecycle."
+        }
+      ]
+    }
+  },
+  "skills": {
+    "tag": "// my_skills",
+    "title": "Stack & Skills",
+    "subtitle": "Technologies I work with every day on real projects.",
+    "categories": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "database": "Databases",
+      "tools": "Tools"
+    }
+  },
+  "projects": {
+    "tag": "// my_projects",
+    "title": "Projects",
+    "subtitle": "Synced with GitHub API — repos with topic ",
+    "or": " or ",
+    "filters": {
+      "all": "All"
+    },
+    "lastFetched": "Updated",
+    "sync": "Sync",
+    "countFound": "{{count}} project found",
+    "countFound_plural": "{{count}} projects found",
+    "loading": "Loading projects...",
+    "emptyState": {
+      "title": "No projects in the portfolio yet",
+      "desc": "For a repository to appear here, add the topic ",
+      "desc2": " on GitHub.",
+      "howTo": "How to do it? 👇",
+      "step1": "Open your repo at",
+      "step2": "Click on ⚙️ (icon next to About) → Topics",
+      "step3": "Type portfolio and save",
+      "step4": "Reload this portfolio and it will appear automatically 🎉",
+      "verifyNow": "Verify now"
+    },
+    "errorState": {
+      "retry": "Retry"
+    },
+    "emptyFilter": "No projects in <strong>{{filter}}</strong> yet.",
+    "viewAll": "View all",
+    "card": {
+      "liveDemo": "Live Demo",
+      "noDemo": "No demo",
+      "github": "View on GitHub",
+      "openDemo": "Open demo",
+      "clickPreview": "Click to preview"
+    },
+    "modal": {
+      "openNewTab": "Open ↗",
+      "github": "GitHub"
+    }
+  },
+  "contact": {
+    "tag": "// direct_contact",
+    "title": "Professional Contact",
+    "subtitle": "Looking to integrate a developer into your team or start a tech project? Let's talk about your requirements.",
+    "cta": {
+      "title": "Contact & Opportunities",
+      "desc": "Available for full-time professional engagement, custom development, and technical consulting. Guaranteed response in less than 24 hours.",
+      "sendMessage": "Send Message",
+      "copyEmail": "Copy Email",
+      "copied": "Copied!"
+    },
+    "links": {
+      "email": "Email Address",
+      "github": "GitHub Profile",
+      "location": "Main Location"
+    },
+    "footer": {
+      "designedBy": "Designed & built by",
+      "role": "Software Engineer",
+      "rights": "All rights reserved."
+    }
+  }
+}

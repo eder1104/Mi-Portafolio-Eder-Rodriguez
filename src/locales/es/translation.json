@@ -1,0 +1,157 @@
+{
+  "navbar": {
+    "inicio": "Inicio",
+    "sobreMi": "Sobre Mí",
+    "skills": "Skills",
+    "proyectos": "Proyectos",
+    "contacto": "Contacto",
+    "contactar": "Contactar"
+  },
+  "hero": {
+    "greeting": "Software Engineer & Full Stack Developer",
+    "typed": [
+      "Full Stack Developer",
+      "Backend PHP / Laravel",
+      "React & Vue.js Specialist",
+      "API REST Specialist",
+      "Software Engineer"
+    ],
+    "bio1": "Ingeniero de Software & Desarrollador Full Stack. Especializado en arquitectura de software backend con ",
+    "bio2": ", construcción de ",
+    "bio3": " seguras e integraciones frontend de alto rendimiento con ",
+    "bio4": " y ",
+    "bio5": ". Ubicado en ",
+    "exploreProjects": "Explorar Proyectos",
+    "professionalContact": "Contacto Profesional",
+    "stats": {
+      "yearsExp": "Años exp.",
+      "projects": "Proyectos",
+      "english": "Inglés"
+    },
+    "scroll": "Scroll",
+    "code": {
+      "role": "\"Full Stack Developer\"",
+      "location": "\"San Gil, Colombia\""
+    }
+  },
+  "about": {
+    "tag": "// perfil_profesional",
+    "title": "Sobre Mí",
+    "subtitle": "Desarrollador enfocado en la construcción de soluciones tecnológicas de alto rendimiento, escalables y seguras.",
+    "available": "Disponible para proyectos & roles",
+    "role": "Full Stack Developer · Software Engineer",
+    "desc1": "Ingeniero de Software graduado con experiencia demostrable en producción. Especializado en arquitectura backend con <1>PHP/Laravel</1>, construcción de <3>APIs RESTful</3> seguras (Passport & Sanctum), y desarrollo frontend moderno con <5>React</5> y <7>Vue.js</7>.",
+    "desc2": "Actualmente enfocado en estándares de <1>calidad de software, auditoría e ISO</1>. Nivel de inglés <3>B2</3> — capacidad de comunicación efectiva en entornos técnicos globales.",
+    "location": "San Gil, Santander, Colombia",
+    "englishLevel": "Inglés B2",
+    "experience": {
+      "title": "Experiencia Profesional",
+      "current": "Actual",
+      "jobs": [
+        {
+          "role": "Software Engineer",
+          "company": "RIOM SAS",
+          "period": "Oct 2025 — Presente",
+          "description": "Desarrollo de software empresarial, arquitectura de sistemas y optimización de aplicaciones web de alto rendimiento."
+        },
+        {
+          "role": "Full Stack Developer",
+          "company": "Virgilio Galvis",
+          "period": "Apr 2025 — Oct 2025",
+          "description": "Diseño y construcción de aplicaciones web robustas. Integración de APIs REST y modernización de sistemas legacy."
+        }
+      ]
+    },
+    "education": {
+      "title": "Educación & Certificaciones",
+      "items": [
+        {
+          "degree": "Ingeniería de Software",
+          "institution": "Tecnológica del Oriente",
+          "period": "Graduado",
+          "detail": "Título profesional en Ingeniería de Software. Enfoque en auditoría de software, estándares ISO y calidad de código."
+        },
+        {
+          "degree": "Tecnólogo ADSO",
+          "institution": "SENA",
+          "period": "Abr 2023 — Jul 2025",
+          "detail": "Análisis y Desarrollo de Software. Formación integral en ciclo de vida del software."
+        }
+      ]
+    }
+  },
+  "skills": {
+    "tag": "// mis_habilidades",
+    "title": "Stack & Skills",
+    "subtitle": "Tecnologías con las que trabajo día a día en proyectos reales.",
+    "categories": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "database": "Bases de Datos",
+      "tools": "Herramientas"
+    }
+  },
+  "projects": {
+    "tag": "// mis_proyectos",
+    "title": "Proyectos",
+    "subtitle": "Sincronizado con GitHub API — repos con topic ",
+    "or": " o ",
+    "filters": {
+      "all": "Todos"
+    },
+    "lastFetched": "Actualizado",
+    "sync": "Sincronizar",
+    "countFound": "{{count}} proyecto encontrado",
+    "countFound_plural": "{{count}} proyectos encontrados",
+    "loading": "Cargando proyectos...",
+    "emptyState": {
+      "title": "Sin proyectos en el portafolio aún",
+      "desc": "Para que un repositorio aparezca aquí, agrega el topic ",
+      "desc2": " en GitHub.",
+      "howTo": "¿Cómo hacerlo? 👇",
+      "step1": "Abre tu repo en",
+      "step2": "Haz clic en ⚙️ (ícono junto a About) → Topics",
+      "step3": "Escribe portfolio y guarda",
+      "step4": "Recarga este portafolio y aparecerá automáticamente 🎉",
+      "verifyNow": "Verificar ahora"
+    },
+    "errorState": {
+      "retry": "Reintentar"
+    },
+    "emptyFilter": "No hay proyectos en <strong>{{filter}}</strong> aún.",
+    "viewAll": "Ver todos",
+    "card": {
+      "liveDemo": "Live Demo",
+      "noDemo": "Sin demo",
+      "github": "Ver en GitHub",
+      "openDemo": "Abrir demo",
+      "clickPreview": "Click para preview"
+    },
+    "modal": {
+      "openNewTab": "Abrir ↗",
+      "github": "GitHub"
+    }
+  },
+  "contact": {
+    "tag": "// contacto_directo",
+    "title": "Contacto Profesional",
+    "subtitle": "¿Buscas integrar un desarrollador a tu equipo o iniciar un proyecto tecnológico? Conversemos sobre tus requerimientos.",
+    "cta": {
+      "title": "Contacto & Oportunidades",
+      "desc": "Disponible para vinculación profesional full-time, desarrollo a medida y asesoría técnica. Respuesta garantizada en menos de 24 horas.",
+      "sendMessage": "Enviar Mensaje",
+      "copyEmail": "Copiar Correo",
+      "copied": "¡Copiado!"
+    },
+    "links": {
+      "email": "Correo Electrónico",
+      "github": "Perfil GitHub",
+      "location": "Ubicación Principal"
+    },
+    "footer": {
+      "designedBy": "Diseñado & construido por",
+      "role": "Software Engineer",
+      "rights": "Todos los derechos reservados."
+    }
+  }
+}

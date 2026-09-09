@@ -1,13 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useTranslation, Trans } from 'react-i18next';
 import './Hero.css';
 
-const TYPED_STRINGS = [
-  'Full Stack Developer',
-  'Backend PHP / Laravel',
-  'React & Vue.js Specialist',
-  'API REST Specialist',
-  'Software Engineer',
-];
+// Typewriter strings are now fetched from i18n
+// we will load them dynamically in the component
 
 function useTypewriter(strings, speed = 80, pause = 2000) {
   const [displayed, setDisplayed] = useState('');
@@ -47,7 +43,9 @@ function useTypewriter(strings, speed = 80, pause = 2000) {
 }
 
 export default function Hero() {
-  const typed = useTypewriter(TYPED_STRINGS);
+  const { t } = useTranslation();
+  const typedStrings = t('hero.typed', { returnObjects: true });
+  const typed = useTypewriter(typedStrings);
 
   return (
     <section id="hero" className="hero" aria-label="Presentación">
@@ -61,7 +59,7 @@ export default function Hero() {
       <div className="container hero__content">
         <div className="hero__text">
           <p className="hero__greeting animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
-            <span>⚡</span> Software Engineer &amp; Full Stack Developer
+            <span>⚡</span> {t('hero.greeting')}
           </p>
 
           <h1 className="hero__name animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
@@ -75,10 +73,9 @@ export default function Hero() {
           </div>
 
           <p className="hero__bio animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
-            Ingeniero de Software &amp; Desarrollador Full Stack.
-            Especializado en arquitectura de software backend con <strong>PHP/Laravel</strong>,
-            construcción de <strong>APIs REST</strong> seguras e integraciones frontend de alto rendimiento con <strong>React</strong> y <strong>Vue.js</strong>.
-            Ubicado en <span className="hero__location">📍 San Gil, Colombia</span>.
+            <Trans i18nKey="hero.bio">
+              {t('hero.bio1')}<strong>PHP/Laravel</strong>{t('hero.bio2')}<strong>APIs REST</strong>{t('hero.bio3')}<strong>React</strong>{t('hero.bio4')}<strong>Vue.js</strong>{t('hero.bio5')}<span className="hero__location">📍 San Gil, Colombia</span>.
+            </Trans>
           </p>
 
           <div className="hero__actions animate-fadeInUp" style={{ animationDelay: '0.5s' }}>
@@ -86,14 +83,14 @@ export default function Hero() {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/>
               </svg>
-              Explorar Proyectos
+              {t('hero.exploreProjects')}
             </a>
             <a href="#contact" className="btn btn-secondary" id="hero-cta-contact">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                 <polyline points="22,6 12,13 2,6"/>
               </svg>
-              Contacto Profesional
+              {t('hero.professionalContact')}
             </a>
             <a
               href="https://github.com/eder1104"
@@ -114,17 +111,17 @@ export default function Hero() {
           <div className="hero__stats animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
             <div className="hero__stat">
               <span className="hero__stat-number">2+</span>
-              <span className="hero__stat-label">Años exp.</span>
+              <span className="hero__stat-label">{t('hero.stats.yearsExp')}</span>
             </div>
             <div className="hero__stat-divider" aria-hidden="true" />
             <div className="hero__stat">
               <span className="hero__stat-number">10+</span>
-              <span className="hero__stat-label">Proyectos</span>
+              <span className="hero__stat-label">{t('hero.stats.projects')}</span>
             </div>
             <div className="hero__stat-divider" aria-hidden="true" />
             <div className="hero__stat">
               <span className="hero__stat-number">B2</span>
-              <span className="hero__stat-label">Inglés</span>
+              <span className="hero__stat-label">{t('hero.stats.english')}</span>
             </div>
           </div>
         </div>
@@ -140,8 +137,8 @@ export default function Hero() {
             </div>
             <pre className="hero__code-body"><code>{`const developer = {
   name: "Eder Rodriguez",
-  role: "Full Stack Developer",
-  location: "San Gil, Colombia",
+  role: ${t('hero.code.role')},
+  location: ${t('hero.code.location')},
   stack: {
     backend:  ["PHP", "Laravel", "Python"],
     frontend: ["React", "Vue.js", "JS"],
@@ -157,7 +154,7 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <a href="#about" className="hero__scroll-indicator" aria-label="Ir a Sobre Mí">
-        <span className="hero__scroll-text">Scroll</span>
+        <span className="hero__scroll-text">{t('hero.scroll')}</span>
         <span className="hero__scroll-arrow" aria-hidden="true">↓</span>
       </a>
     </section>
