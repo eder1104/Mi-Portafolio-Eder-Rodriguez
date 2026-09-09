@@ -12,8 +12,8 @@ export default function Contact() {
     {
       id: 'contact-email',
       label: t('contact.links.email'),
-      value: 'ederyairrodriguezparra1231@gmail.com',
-      href: 'mailto:ederyairrodriguezparra1231@gmail.com',
+      value: 'ederyairdev@gmail.com',
+      href: 'mailto:ederyairdev@gmail.com',
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -51,7 +51,7 @@ export default function Contact() {
 
   const handleCopyEmail = async () => {
     try {
-      await navigator.clipboard.writeText('ederyairrodriguezparra1231@gmail.com');
+      await navigator.clipboard.writeText('ederyairdev@gmail.com');
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
@@ -82,7 +82,7 @@ export default function Contact() {
               </p>
               <div className="contact__cta-actions">
                 <a
-                  href="mailto:ederyairrodriguezparra1231@gmail.com"
+                  href="mailto:ederyairdev@gmail.com"
                   className="btn btn-primary"
                   id="contact-email-btn"
                 >
