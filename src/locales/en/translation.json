@@ -46,12 +46,12 @@
     "englishLevel": "B2 English",
     "experience": {
       "title": "Professional Experience",
-      "current": "Current",
+      "current": "30/09/2026",
       "jobs": [
         {
           "role": "Software Engineer",
           "company": "RIOM SAS",
-          "period": "Oct 2025 — Present",
+          "period": "Oct 2025 — 30/09/2026",
           "description": "Enterprise software development, systems architecture, and optimization of high-performance web applications."
         },
         {

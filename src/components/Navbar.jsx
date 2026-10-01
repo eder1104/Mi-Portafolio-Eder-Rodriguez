@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Navbar.css';
 
@@ -14,7 +14,11 @@ export default function Navbar() {
   const { t, i18n } = useTranslation();
   const [scrolled, setScrolled]   = useState(false);
   const [menuOpen, setMenuOpen]   = useState(false);
+  const [cvOpen, setCvOpen]       = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const cvDropdownRef = useRef(null);
+
+  const isEn = i18n.language && i18n.language.startsWith('en');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,7 +39,20 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const closeMenu = () => setMenuOpen(false);
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (cvDropdownRef.current && !cvDropdownRef.current.contains(e.target)) {
+        setCvOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setCvOpen(false);
+  };
 
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} role="navigation" aria-label="Navegación principal">
@@ -60,6 +77,76 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
+
+        {/* CV Download Dropdown */}
+        <div className="navbar__cv-dropdown" ref={cvDropdownRef}>
+          <button
+            type="button"
+            className="btn btn-secondary navbar__cv-btn"
+            onClick={() => setCvOpen((prev) => !prev)}
+            aria-expanded={cvOpen}
+            aria-haspopup="true"
+            aria-label={isEn ? 'Download CV' : 'Descargar CV'}
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span>{isEn ? 'Download CV' : 'Descargar CV'}</span>
+            <svg
+              className={`navbar__cv-chevron ${cvOpen ? 'navbar__cv-chevron--open' : ''}`}
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+
+          {cvOpen && (
+            <div className="navbar__cv-menu glass-card" role="menu">
+              <a
+                href="/Eder_Rodriguez_CV_Profesional_ES_30-09-2026.pdf"
+                download="Eder_Rodriguez_CV_ES.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="navbar__cv-item"
+                role="menuitem"
+                onClick={() => setCvOpen(false)}
+              >
+                <img src="https://flagcdn.com/es.svg" alt="Español" className="navbar__cv-flag" />
+                <div className="navbar__cv-item-text">
+                  <span className="navbar__cv-item-title">Español</span>
+                  <span className="navbar__cv-item-sub">PDF · ES</span>
+                </div>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </a>
+              <a
+                href="/Eder_Rodriguez_CV_Professional_30-09-2026.pdf"
+                download="Eder_Rodriguez_CV_EN.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="navbar__cv-item"
+                role="menuitem"
+                onClick={() => setCvOpen(false)}
+              >
+                <img src="https://flagcdn.com/us.svg" alt="English" className="navbar__cv-flag" />
+                <div className="navbar__cv-item-text">
+                  <span className="navbar__cv-item-title">English</span>
+                  <span className="navbar__cv-item-sub">PDF · EN</span>
+                </div>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </a>
+            </div>
+          )}
+        </div>
 
         {/* Language Switcher */}
         <button
@@ -110,6 +197,42 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          {/* Mobile CV Download */}
+          <li className="navbar__mobile-cv-section">
+            <span className="navbar__mobile-cv-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              {isEn ? 'Download CV' : 'Descargar CV'}
+            </span>
+            <div className="navbar__mobile-cv-grid">
+              <a
+                href="/Eder_Rodriguez_CV_Profesional_ES_30-09-2026.pdf"
+                download="Eder_Rodriguez_CV_ES.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary navbar__mobile-cv-btn"
+                onClick={closeMenu}
+              >
+                <img src="https://flagcdn.com/es.svg" alt="Español" style={{ width: '18px', borderRadius: '2px' }} />
+                <span>Español</span>
+              </a>
+              <a
+                href="/Eder_Rodriguez_CV_Professional_30-09-2026.pdf"
+                download="Eder_Rodriguez_CV_EN.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary navbar__mobile-cv-btn"
+                onClick={closeMenu}
+              >
+                <img src="https://flagcdn.com/us.svg" alt="English" style={{ width: '18px', borderRadius: '2px' }} />
+                <span>English</span>
+              </a>
+            </div>
+          </li>
+
           <li>
             <div style={{ display: 'flex', gap: '1rem', width: '100%' }}>
               <button
